@@ -6,7 +6,6 @@
   <title>Home - METROVILLE EDGES CO.LTD</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Inline basic styles for newsletter if not already in styles.css */
     .newsletter {
       background-color: #f0f8ff;
       padding: 2rem 1rem;
@@ -52,6 +51,12 @@
 
     .newsletter-form button:hover {
       background-color: #005f73;
+    }
+
+    #thank-you-msg {
+      color: green;
+      margin-top: 1rem;
+      display: none;
     }
   </style>
 </head>
@@ -113,10 +118,12 @@
   <section class="newsletter reveal">
     <h2>Subscribe to Our Newsletter</h2>
     <p>Get the latest updates, insights, and M&E tips directly to your inbox.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-      <input type="email" placeholder="Enter your email" required />
+    <form class="newsletter-form" action="https://script.google.com/macros/s/AKfycbzCsPV5B6KjqGr3F3rdz5VeJBpvLrfN08MHxnUTutLK9GgphCGF9Zj229k5fM1zB88M-Q/exec" method="POST" target="hidden_iframe" onsubmit="showThankYou()">
+      <input type="email" name="email" placeholder="Enter your email" required />
       <button type="submit">Subscribe</button>
     </form>
+    <p id="thank-you-msg">Thank you for subscribing!</p>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
   </section>
 
   <footer>
@@ -157,6 +164,13 @@
         }
       });
     });
+
+    // Newsletter Thank You Message
+    function showThankYou() {
+      setTimeout(() => {
+        document.getElementById('thank-you-msg').style.display = 'block';
+      }, 500);
+    }
   </script>
 </body>
 </html>
