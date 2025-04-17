@@ -151,7 +151,28 @@
     </p>
     <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
   </footer>
+ <script>
+    function openModal(imgElement) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("modalCaption");
 
+      modal.style.display = "block";
+      modalImg.src = imgElement.src;
+      captionText.textContent = imgElement.alt;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
 </body>
 </html>
 
