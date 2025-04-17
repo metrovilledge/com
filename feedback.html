@@ -21,10 +21,23 @@
       padding: 1rem;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
     nav a {
       color: #fff;
-      margin: 0 10px;
       text-decoration: none;
+      padding: 0.5rem;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    nav a:hover {
+      color: #1e90ff;
+      border-bottom: 2px solid #1e90ff;
     }
 
     nav a.active {
@@ -47,17 +60,38 @@
       text-align: center;
     }
 
+    iframe {
+      width: 100%;
+      height: 650px;
+      border: none;
+    }
+
     footer p {
       margin: 10px 0;
     }
 
     footer img {
       vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
       .container {
         padding: 1rem;
+        margin: 1rem;
+      }
+
+      iframe {
+        height: 700px;
       }
     }
   </style>
@@ -78,26 +112,25 @@
     <a href="Ourteam.html">Our Team</a>
   </nav>
 
-  <div class="container">
+  <main class="container">
     <h2>We Value Your Feedback</h2>
-    <!-- Embed the Google Form here -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDyHT3nNCzyIMhPFBSBg7t3N80A5aH0jNspTFCjYvmhwJobA/viewform?embedded=true" width="640" height="642" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
+    <!-- Embedded Google Form -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDyHT3nNCzyIMhPFBSBg7t3N80A5aH0jNspTFCjYvmhwJobA/viewform?embedded=true">Loading…</iframe>
+  </main>
 
   <footer>
     <p>
-      <a href="https://www.linkedin.com/company/metroville-edge" target="_blank" style="color: #fff; text-decoration: none;">
-        <img src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn" />
+      <a href="https://www.linkedin.com/company/metroville-edge" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn icon" />
         Connect with us on LinkedIn
       </a>
     </p>
     <p>
-      📞 <a href="tel:+256772487189" style="color: #fff; text-decoration: none;">+256 772 487 189</a><br>
-      📧 <a href="mailto:bmusana0@gmail.com" style="color: #fff; text-decoration: none;">bmusana0@gmail.com</a><br>
-      💬 <a href="https://wa.me/256772487189" target="_blank" style="color: #fff; text-decoration: none;">Chat with us on WhatsApp</a>
+      📞 <a href="tel:+256772487189">+256 772 487 189</a><br>
+      📧 <a href="mailto:bmusana0@gmail.com">bmusana0@gmail.com</a><br>
+      💬 <a href="https://wa.me/256772487189" target="_blank">Chat with us on WhatsApp</a>
     </p>
     <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
-
