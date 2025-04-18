@@ -49,16 +49,14 @@
   </header>
 
   <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="vision.html">Vision</a></li>
-      <li><a href="mission.html">Mission</a></li>
-      <li><a href="corevalues.html">Core Values</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="feedback.html">Feedback</a></li>
-      <li><a href="ourteam.html">Our Team</a></li>
-    </ul>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="mission.html">Mission</a>
+    <a href="corevalues.html">Core Values</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="ourteam.html">Our Team</a>
   </nav>
 
   <section class="hero reveal">
@@ -72,8 +70,46 @@
   <section class="services reveal">
     <h2>What We Do</h2>
     <div class="service-boxes">
-      <!-- Repeat structure for each service card -->
-      <!-- ... all services left unchanged for brevity ... -->
+      <div class="service">
+        <img src="service1.jpg" alt="Monitoring tools" />
+        <h3>Monitoring</h3>
+        <p>Tools to track project performance effectively and transparently.</p>
+      </div>
+      <div class="service">
+        <img src="service2.jpg" alt="Evaluation process" />
+        <h3>Evaluation</h3>
+        <p>Get detailed, data-driven insights to optimize your impact.</p>
+      </div>
+      <div class="service">
+        <img src="service3.jpg" alt="Team in training" />
+        <h3>Training</h3>
+        <p>We build your team's capacity to manage and evaluate projects.</p>
+      </div>
+      <div class="service">
+        <img src="service-training.jpg" alt="M&E training session" />
+        <h3>Capacity Building and Training</h3>
+        <p>Offering practical training and mentorship to strengthen institutional M&E capacity.</p>
+      </div>
+      <div class="service">
+        <img src="service-data.jpg" alt="Data visualization dashboard" />
+        <h3>Data Management and Analysis</h3>
+        <p>Providing data collection, analysis, visualization, and reporting services using modern tools and technologies.</p>
+      </div>
+      <div class="service">
+        <img src="service-planning.jpg" alt="Planning and design documents" />
+        <h3>Project Planning and Design</h3>
+        <p>Assisting organizations in developing robust, evidence-informed project frameworks and proposals.</p>
+      </div>
+      <div class="service">
+        <img src="service-surveys.jpg" alt="Survey collection" />
+        <h3>Baseline, Midline, and Endline Surveys</h3>
+        <p>Conducting high-quality evaluations to assess impact and inform decision-making.</p>
+      </div>
+      <div class="service">
+        <img src="service-strategy.jpg" alt="Strategic planning session" />
+        <h3>Strategic Planning and Organizational Development</h3>
+        <p>Supporting institutions in aligning their vision, strategies, and operations for greater impact.</p>
+      </div>
     </div>
   </section>
 
@@ -82,6 +118,7 @@
     <button onclick="location.href='contact.html'" aria-label="Go to contact page">Contact Us</button>
   </section>
 
+  <!-- Newsletter Section -->
   <section class="newsletter reveal">
     <h2>Stay Updated</h2>
     <p>Subscribe to our newsletter for insights, updates, and opportunities from METROVILLE EDGES CO.LTD.</p>
@@ -90,8 +127,7 @@
           method="POST" 
           target="hidden_iframe" 
           onsubmit="showThankYou();">
-      <label for="newsletterEmail" class="visually-hidden">Email address</label>
-      <input id="newsletterEmail" type="email" name="Email" placeholder="Enter your email" required aria-label="Email address" />
+      <input type="email" name="Email" placeholder="Enter your email" required aria-label="Email address" />
       <button type="submit">Subscribe</button>
     </form>
     <p id="newsletterMessage" style="margin-top: 10px;"></p>
@@ -110,7 +146,7 @@
       📞 <a href="tel:+256772487189" style="color: #fff; text-decoration: none;">+256 772 487 189</a><br>
       📧 <a href="mailto:bmusana0@gmail.com" style="color: #fff; text-decoration: none;">bmusana0@gmail.com</a><br>
       💬 <a href="https://wa.me/256772487189" target="_blank" rel="noopener" style="color: #fff; text-decoration: none;">Chat with us on WhatsApp</a>
-    </p>
+    </p> 
 
     <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
   </footer>
@@ -146,5 +182,4 @@
   </script>
 </body>
 </html>
-
 
