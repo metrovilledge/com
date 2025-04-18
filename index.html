@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home - METROVILLE EDGES CO.LTD</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .newsletter {
+      background-color: #f4f4f4;
+      padding: 2rem;
+      text-align: center;
+    }
+    .newsletter h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-form {
+      margin-top: 1rem;
+    }
+    .newsletter-form input[type="email"] {
+      padding: 0.5rem;
+      width: 250px;
+      max-width: 80%;
+      margin-right: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .newsletter-form button {
+      padding: 0.5rem 1rem;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .newsletter-form button:hover {
+      background-color: #023e8a;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -85,6 +118,22 @@
     <button onclick="location.href='contact.html'" aria-label="Go to contact page">Contact Us</button>
   </section>
 
+  <!-- Newsletter Section -->
+  <section class="newsletter reveal">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter for insights, updates, and opportunities from METROVILLE EDGES CO.LTD.</p>
+    <form class="newsletter-form" 
+          action="https://script.google.com/macros/s/AKfycbzjUYGuWOGYY-QwNgMmQeoPj9r-l13zu4N2kpqOUIRyZsMgUYkfkw4IL5Hx180IFSCcdQ/exec" 
+          method="POST" 
+          target="hidden_iframe" 
+          onsubmit="showThankYou();">
+      <input type="email" name="Email" placeholder="Enter your email" required aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="newsletterMessage" style="margin-top: 10px;"></p>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </section>
+
   <footer>
     <p>
       <a href="https://www.linkedin.com/company/metroville-edge" target="_blank" rel="noopener" style="color: #fff; text-decoration: none;">
@@ -123,6 +172,13 @@
         }
       });
     });
+
+    // Newsletter Thank You Message
+    function showThankYou() {
+      const message = document.getElementById('newsletterMessage');
+      message.textContent = "Thank you for subscribing!";
+      message.style.color = "green";
+    }
   </script>
 </body>
 </html>
