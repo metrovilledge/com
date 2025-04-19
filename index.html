@@ -37,6 +37,14 @@
     .newsletter-form button:hover {
       background-color: #023e8a;
     }
+    .visually-hidden {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -75,8 +83,7 @@
         <h3>Monitoring</h3>
         <p>Tools to track project performance effectively and transparently.</p>
       </div>
-      
-    <div class="service">
+      <div class="service">
         <img src="service2.jpg" alt="Survey collection" />
         <h3>Baseline, Midline, and Endline Surveys</h3>
         <p>Conducting high-quality evaluations to assess impact and inform decision-making.</p>
@@ -96,7 +103,6 @@
         <h3>Project Planning and Design</h3>
         <p>Assisting organizations in developing robust, evidence-informed project frameworks and proposals.</p>
       </div>
-    
       <div class="service">
         <img src="service-strategy.jpg" alt="Strategic planning session" />
         <h3>Strategic Planning and Organizational Development</h3>
@@ -114,22 +120,23 @@
   <section class="newsletter reveal">
     <h2>Stay Updated</h2>
     <p>Subscribe to our newsletter for insights, updates, and opportunities from METROVILLE EDGES CO.LTD.</p>
-    
-    <form class="newsletter-form" 
-      action="https://script.google.com/macros/s/AKfycbyJvvqmTaTYeRZFX-q1eyIm2ZwxM8SlEf-b6vi_QQawqTjCJ1W_DydTLWviSevJkhxVQA/exec" 
-      method="POST" 
-      target="hidden_iframe" 
-      onsubmit="return showThankYou();">
-  <label for="newsletterEmail" class="visually-hidden">Email address</label>
-  <input id="newsletterEmail" 
-         type="email" 
-         name="email" 
-         placeholder="Enter your email" 
-         required 
-         aria-label="Email address" />
-  <button type="submit">Subscribe</button>
-</form>
-    <p id="newsletterMessage" style="margin-top: 10px;"></p>
+
+    <form class="newsletter-form"
+          action="https://script.google.com/macros/s/AKfycbyJvvqmTaTYeRZFX-q1eyIm2ZwxM8SlEf-b6vi_QQawqTjCJ1W_DydTLWviSevJkhxVQA/exec"
+          method="POST"
+          target="hidden_iframe"
+          onsubmit="return showThankYou();">
+      <label for="newsletterEmail" class="visually-hidden">Email address</label>
+      <input id="newsletterEmail" 
+             type="email" 
+             name="email" 
+             placeholder="Enter your email" 
+             required 
+             aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <p id="newsletterMessage" aria-live="polite" style="margin-top: 10px;"></p>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
   </section>
 
@@ -140,13 +147,11 @@
         Connect with us on LinkedIn
       </a>
     </p>
-
     <p>
       📞 <a href="tel:+256772487189" style="color: #fff; text-decoration: none;">+256 772 487 189</a><br>
       📧 <a href="mailto:infometrovilleedges@gmail.com" style="color: #fff; text-decoration: none;">infometrovilleedges@gmail.com</a><br>
       💬 <a href="https://wa.me/256772487189" target="_blank" rel="noopener" style="color: #fff; text-decoration: none;">Chat with us on WhatsApp</a>
-    </p> 
-
+    </p>
     <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
   </footer>
 
@@ -177,8 +182,8 @@
       const message = document.getElementById('newsletterMessage');
       message.textContent = "Thank you for subscribing!";
       message.style.color = "green";
+      return true;
     }
   </script>
 </body>
 </html>
-
