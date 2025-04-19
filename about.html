@@ -8,6 +8,7 @@
   <style>
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -16,6 +17,7 @@
       padding: 0;
       background-color: #e9f2f7;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
@@ -27,25 +29,27 @@
 
     nav {
       background-color: #222;
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-   nav a {
+    nav a {
       color: white;
       margin: 0 12px;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     nav a:hover,
     nav a.active {
       text-decoration: underline;
       color: #00baff;
-    }
     }
 
     .container {
@@ -135,10 +139,19 @@
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
+        gap: 10px;
       }
 
       nav a {
-        margin: 10px 0;
+        margin: 8px 0;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -151,7 +164,7 @@
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="vision.html">Vision</a>
     <a href="mission.html">Mission</a>
     <a href="corevalues.html">Core Values</a>
@@ -215,7 +228,7 @@
       </a>
     </p>
     <p>
-      📞 <a href="tel:+256 772 487 189">+256 776 080 634</a><br>
+      📞 <a href="tel:+256776080634">+256 776 080 634</a><br>
       📧 <a href="mailto:infometrovilleedges@gmail.com">infometrovilleedges@gmail.com</a><br>
       💬 <a href="https://wa.me/256772487189" target="_blank">Chat with us on WhatsApp</a>
     </p>
