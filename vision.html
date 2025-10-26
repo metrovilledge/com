@@ -3,14 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting to Vision Page - METROVILLE EDGES CO.LTD</title>
-  
-  <!-- Immediate redirect -->
-  <script>
-    window.location.href = "https://metrovilleedge.com/vision";
-  </script>
-  
-  <!-- Fallback styles in case redirect fails -->
+  <title>Our Mission, Vision & Values - METROVILLE EDGES CO.LTD</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -33,42 +26,73 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: var(--white);
+      background-color: var(--light);
+      color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
     }
 
-    .redirect-container {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 3rem 2rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 10000;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 2rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .logo-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 2rem;
+      position: relative;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2.5rem;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
 
     .logo-img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
+      margin-right: 1.5rem;
       border-radius: 12px;
       background: var(--white);
       display: flex;
@@ -85,8 +109,12 @@
       object-fit: contain;
     }
 
+    .logo-text {
+      text-align: left;
+    }
+
     .logo-text h1 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 0.2rem;
       line-height: 1.2;
@@ -99,32 +127,335 @@
       font-weight: 300;
     }
 
-    .redirect-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+    header h1 {
+      position: relative;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    header p {
+      position: relative;
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* UPDATED NAVIGATION STYLES */
+    nav {
+      background: linear-gradient(135deg, var(--secondary) 0%, #333 100%);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .nav-brand .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
       color: var(--white);
-      animation: pulse 2s infinite;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+    .nav-brand .logo:hover {
+      transform: translateY(-2px);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .nav-brand .logo span {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .nav-brand .logo i {
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 8px 8px 0 0;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a i {
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--primary);
+    }
+
+    .nav-links a:hover i {
+      transform: scale(1.1);
+    }
+
+    .nav-links a.active {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 -4px 12px rgba(231, 76, 60, 0.3);
+    }
+
+    .nav-links a.active::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--white);
+    }
+
+    .nav-links a.active i {
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+    }
+
+    .page-intro {
+      text-align: center;
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-intro h2 {
+      font-size: 2.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .page-intro p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .tabs-container {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tab-btn {
+      background: var(--white);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      background: rgba(231, 76, 60, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    }
+
+    .tab-btn i {
+      font-size: 1.1rem;
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.5s ease;
+      border: 1px solid #eaeaea;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .content-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    }
+
+    .content-icon i {
+      font-size: 1.8rem;
+      color: var(--white);
+    }
+
+    .content-title {
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
       font-weight: 600;
     }
 
-    p {
+    .content-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .content-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .content-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .values-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .values-list li {
+      margin-bottom: 1.5rem;
+      padding-left: 2.5rem;
+      position: relative;
+    }
+
+    .values-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    }
+
+    .value-title {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    .value-desc {
+      color: #555;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 4rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-content p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
 
-    .redirect-link {
+    .cta-button {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -139,138 +470,714 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .redirect-link:hover {
+    .cta-button:hover {
       background-color: transparent;
       color: var(--white);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .loading-dots {
-      display: inline-flex;
-      gap: 0.3rem;
+    footer {
+      background: linear-gradient(135deg, var(--secondary) 0%, #444 100%);
+      color: var(--white);
+      padding: 3rem 1rem 1.5rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-links i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
       margin-top: 1rem;
     }
 
-    .loading-dots span {
-      width: 8px;
-      height: 8px;
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: var(--white);
-      animation: bounce 1.4s infinite ease-in-out both;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: var(--transition);
     }
 
-    .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
-    .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
 
-    @keyframes bounce {
-      0%, 80%, 100% { 
-        transform: scale(0);
-      } 40% { 
-        transform: scale(1.0);
+    .copyright {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Color Customization Panel */
+    .color-customizer {
+      position: fixed;
+      top: 50%;
+      right: -300px;
+      transform: translateY(-50%);
+      background: var(--white);
+      border-radius: 8px 0 0 8px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      width: 300px;
+      transition: right 0.4s ease;
+      z-index: 1001;
+      border: 1px solid #eaeaea;
+    }
+
+    .color-customizer.active {
+      right: 0;
+    }
+
+    .color-toggle {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px 0 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .color-toggle:hover {
+      background: var(--primary-dark);
+    }
+
+    .color-toggle i {
+      font-size: 1.2rem;
+    }
+
+    .color-customizer h3 {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .color-customizer h3 i {
+      color: var(--primary);
+    }
+
+    .color-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+
+    .color-option.active {
+      border-color: var(--secondary);
+      transform: scale(1.1);
+    }
+
+    .color-option.red {
+      background-color: #e74c3c;
+    }
+
+    .color-option.blue {
+      background-color: #3498db;
+    }
+
+    .color-option.green {
+      background-color: #2ecc71;
+    }
+
+    .color-option.purple {
+      background-color: #9b59b6;
+    }
+
+    .color-option.orange {
+      background-color: #e67e22;
+    }
+
+    .color-option.teal {
+      background-color: #1abc9c;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links a {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      
+      .nav-links a i {
+        font-size: 1rem;
       }
     }
 
-    .countdown {
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      opacity: 0.8;
-    }
-
     @media (max-width: 768px) {
-      .redirect-container {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--secondary) 0%, #333 100%);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        border-top: 3px solid var(--primary);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        justify-content: flex-start;
+      }
+
+      .nav-links a.active::before {
+        display: none;
+      }
+
+      .nav-links a.active {
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .page-intro h2 {
+        font-size: 1.8rem;
+      }
+
+      .content-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .content-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .tab-content {
         padding: 2rem 1.5rem;
       }
 
       .logo-container {
         flex-direction: column;
         text-align: center;
-        gap: 1rem;
+        padding: 1.5rem;
       }
 
-      h1 {
-        font-size: 1.6rem;
+      .logo-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
       }
 
-      p {
-        font-size: 1rem;
+      .logo-text {
+        text-align: center;
       }
 
-      .redirect-icon {
-        font-size: 2.5rem;
+      .nav-brand .logo {
+        font-size: 1.4rem;
+      }
+
+      .color-customizer {
+        width: 250px;
       }
     }
 
     @media (max-width: 480px) {
-      .redirect-container {
-        padding: 1.5rem 1rem;
+      header h1 {
+        font-size: 1.8rem;
       }
 
-      h1 {
-        font-size: 1.4rem;
+      .page-intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tab-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
       }
 
       .logo-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .nav-brand .logo {
+        font-size: 1.2rem;
+      }
+
+      .nav-brand .logo i {
+        font-size: 1.4rem;
+      }
+
+      .color-customizer {
+        width: 220px;
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="redirect-container">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Color Customization Panel -->
+  <div class="color-customizer">
+    <div class="color-toggle" aria-label="Toggle color customizer">
+      <i class="fas fa-palette"></i>
+    </div>
+    <h3><i class="fas fa-paint-brush"></i> Color Theme</h3>
+    
+    <div class="color-options">
+      <div class="color-option red active" data-color="#e74c3c" aria-label="Red theme"></div>
+      <div class="color-option blue" data-color="#3498db" aria-label="Blue theme"></div>
+      <div class="color-option green" data-color="#2ecc71" aria-label="Green theme"></div>
+      <div class="color-option purple" data-color="#9b59b6" aria-label="Purple theme"></div>
+      <div class="color-option orange" data-color="#e67e22" aria-label="Orange theme"></div>
+      <div class="color-option teal" data-color="#1abc9c" aria-label="Teal theme"></div>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Select a color to change the website theme</p>
+  </div>
+
+  <header>
     <div class="logo-section">
       <div class="logo-container">
         <div class="logo-img">
           <img src="logo.jpg" alt="METROVILLE EDGES CO.LTD Logo" onerror="this.style.display='none'">
         </div>
+        
         <div class="logo-text">
           <h1>METROVILLE EDGES</h1>
           <p>CO.LTD | Monitoring & Evaluation Experts</p>
         </div>
       </div>
     </div>
+    <h1>Our Mission, Vision & Values</h1>
+    <p>Guiding principles that drive our commitment to excellence and impact</p>
+  </header>
 
-    <div class="redirect-icon">
-      <i class="fas fa-arrow-right"></i>
-    </div>
-
-    <h1>Redirecting to Vision Page</h1>
-    <p>You are being redirected to our Mission, Vision & Values page.</p>
-
-    <div class="loading-dots">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="countdown" id="countdown">Redirecting in 3 seconds...</div>
-
-    <a href="https://metrovilleedge.com/vision" class="redirect-link">
-      <i class="fas fa-external-link-alt"></i>
-      Click here if not redirected
-    </a>
-  </div>
-
-  <!-- Fallback JavaScript -->
-  <script>
-    // Countdown timer
-    let seconds = 3;
-    const countdownElement = document.getElementById('countdown');
-    const countdownInterval = setInterval(() => {
-      seconds--;
-      countdownElement.textContent = `Redirecting in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
+  <!-- UPDATED NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <i class="fas fa-chart-line"></i>
+          METROVILLE <span>EDGES</span>
+        </a>
+      </div>
       
-      if (seconds <= 0) {
-        clearInterval(countdownInterval);
-        // Final redirect attempt
-        window.location.href = "https://metrovilleedge.com/vision";
-      }
-    }, 1000);
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links">
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <a href="about.html">
+          <i class="fas fa-info-circle"></i>
+          About
+        </a>
+        
+        <a href="vision.html" class="active" aria-current="page">
+          <i class="fas fa-eye"></i>
+          Mission & Vision
+        </a>
+        <a href="Ourteam.html">
+          <i class="fas fa-users"></i>
+          Our Team
+        </a>
+        <a href="contact.html">
+          <i class="fas fa-envelope"></i>
+          Contact
+        </a>
+      </div>
+    </div>
+  </nav>
 
-    // Final redirect after 3 seconds as backup
-    setTimeout(() => {
-      window.location.href = "https://metrovilleedge.com/vision";
-    }, 3000);
+  <main id="main-content">
+    <section class="page-intro">
+      <h2>Our Guiding Principles</h2>
+      <p>At METROVILLE EDGES CO.LTD, our mission, vision, and core values form the foundation of everything we do. They guide our decisions, shape our culture, and drive our commitment to delivering exceptional value to our clients and communities.</p>
+    </section>
+
+    <section class="tabs-container">
+      <div class="tabs" role="tablist" aria-label="Mission, Vision and Values">
+        <button class="tab-btn active" data-tab="mission" role="tab" aria-selected="true" aria-controls="mission-tab">
+          <i class="fas fa-bullseye"></i>
+          Our Mission
+        </button>
+        <button class="tab-btn" data-tab="vision" role="tab" aria-selected="false" aria-controls="vision-tab">
+          <i class="fas fa-eye"></i>
+          Our Vision
+        </button>
+        <button class="tab-btn" data-tab="values" role="tab" aria-selected="false" aria-controls="values-tab">
+          <i class="fas fa-heart"></i>
+          Our Values
+        </button>
+      </div>
+
+      <div class="tab-content active" id="mission" role="tabpanel" aria-labelledby="mission-tab" tabindex="0">
+        <div class="content-header">
+          <div class="content-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div>
+            <h2 class="content-title">Our Mission</h2>
+            <p class="content-subtitle">Our purpose and commitment</p>
+          </div>
+        </div>
+        <div class="content-body">
+          <p>At <strong>METROVILLE EDGES CO.LTD</strong>, our mission is to enhance the service delivery of development projects, programs, and organizations by institutionalizing effective monitoring and evaluation systems.</p>
+          <p>These systems are designed to align with both donor reporting requirements and internal management objectives — ensuring accountability, insight, and lasting impact.</p>
+          <p>We believe that robust M&E systems are essential for organizations to track progress, measure outcomes, and continuously improve their interventions for maximum social impact.</p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="vision" role="tabpanel" aria-labelledby="vision-tab" tabindex="0" hidden>
+        <div class="content-header">
+          <div class="content-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div>
+            <h2 class="content-title">Our Vision</h2>
+            <p class="content-subtitle">Where we're headed</p>
+          </div>
+        </div>
+        <div class="content-body">
+          <p>At <strong>METROVILLE EDGES CO.LTD</strong>, our vision is to become a leader in delivering high-quality, Results-Based Monitoring and Evaluation services.</p>
+          <p>We aim to empower our clients to make data-driven decisions that drive progress toward achieving sustainable development goals — positively impacting communities for generations to come.</p>
+          <p>We envision a future where every development initiative is guided by evidence, where resources are allocated efficiently, and where every intervention creates meaningful, measurable change in people's lives.</p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="values" role="tabpanel" aria-labelledby="values-tab" tabindex="0" hidden>
+        <div class="content-header">
+          <div class="content-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div>
+            <h2 class="content-title">Our Core Values</h2>
+            <p class="content-subtitle">What we stand for</p>
+          </div>
+        </div>
+        <div class="content-body">
+          <p>Our values are the foundation of our company culture and guide our interactions with clients, partners, and each other.</p>
+          
+          <ul class="values-list">
+            <li>
+              <div class="value-title">Quality</div>
+              <div class="value-desc">We provide top-tier services that meet our clients' needs and exceed their expectations through meticulous attention to detail and continuous improvement.</div>
+            </li>
+            <li>
+              <div class="value-title">Integrity</div>
+              <div class="value-desc">We uphold the highest standards of honesty and transparency in all our dealings, building trust through ethical practices and reliable data.</div>
+            </li>
+            <li>
+              <div class="value-title">Simplicity</div>
+              <div class="value-desc">We make complex processes simple and easy to understand, ensuring that our clients can effectively use M&E insights for decision-making.</div>
+            </li>
+            <li>
+              <div class="value-title">Sharing</div>
+              <div class="value-desc">We believe in the power of collaboration and knowledge sharing, working as partners with our clients to achieve shared goals.</div>
+            </li>
+            <li>
+              <div class="value-title">Innovation</div>
+              <div class="value-desc">We are always looking for new ways to improve and adapt, leveraging technology and creative approaches to enhance M&E practices.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Transform Your M&E Systems?</h2>
+      <p>Contact us today to learn how our mission-driven approach can help your organization achieve greater impact through effective monitoring and evaluation.</p>
+      <a href="contact.html" class="cta-button">
+        <i class="fas fa-paper-plane"></i>
+        Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:+256768145046">
+              <i class="fas fa-phone"></i> +256 768 145 046
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infometrovilleedges@gmail.com">
+              <i class="fas fa-envelope"></i> infometrovilleedges@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/256772487189" target="_blank">
+              <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="Ourteam.html"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+          <li><a href="vision.html"><i class="fas fa-chevron-right"></i> Mission & Vision</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <p>Follow us on social media to stay updated with our latest news and insights.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/metroville-edge" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+
+    // Tab functionality with accessibility improvements
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and content
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+          content.setAttribute('hidden', 'true');
+        });
+        
+        // Add active class to clicked button and corresponding content
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+        const tabId = button.getAttribute('data-tab');
+        const tabContent = document.getElementById(tabId);
+        tabContent.classList.add('active');
+        tabContent.removeAttribute('hidden');
+        tabContent.focus();
+      });
+    });
+
+    // Keyboard navigation for tabs
+    document.querySelectorAll('.tab-btn').forEach((button, index, buttons) => {
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          const nextIndex = (index + 1) % buttons.length;
+          buttons[nextIndex].focus();
+          buttons[nextIndex].click();
+        } else if (e.key === 'ArrowLeft') {
+          const prevIndex = (index - 1 + buttons.length) % buttons.length;
+          buttons[prevIndex].focus();
+          buttons[prevIndex].click();
+        } else if (e.key === 'Home') {
+          buttons[0].focus();
+          buttons[0].click();
+        } else if (e.key === 'End') {
+          buttons[buttons.length - 1].focus();
+          buttons[buttons.length - 1].click();
+        }
+      });
+    });
+
+    // Color Customization Functionality
+    const colorCustomizer = document.querySelector('.color-customizer');
+    const colorToggle = document.querySelector('.color-toggle');
+    const colorOptions = document.querySelectorAll('.color-option');
+
+    // Toggle color customizer panel
+    colorToggle.addEventListener('click', () => {
+      colorCustomizer.classList.toggle('active');
+    });
+
+    // Apply predefined color options
+    colorOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Remove active class from all options
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        // Add active class to clicked option
+        option.classList.add('active');
+        // Apply the color
+        applyColor(option.getAttribute('data-color'));
+      });
+    });
+
+    // Function to apply color changes
+    function applyColor(color) {
+      // Calculate a darker version for primary-dark
+      const primaryDark = darkenColor(color, 20);
+      
+      // Update CSS variables
+      document.documentElement.style.setProperty('--primary', color);
+      document.documentElement.style.setProperty('--primary-dark', primaryDark);
+      
+      // Save to localStorage for persistence
+      localStorage.setItem('primaryColor', color);
+      localStorage.setItem('primaryDarkColor', primaryDark);
+    }
+
+    // Function to darken a color
+    function darkenColor(color, percent) {
+      const num = parseInt(color.replace("#", ""), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) - amt;
+      const G = (num >> 8 & 0x00FF) - amt;
+      const B = (num & 0x0000FF) - amt;
+      
+      return "#" + (
+        0x1000000 +
+        (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+        (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+        (B < 255 ? (B < 1 ? 0 : B) : 255)
+      ).toString(16).slice(1);
+    }
+
+    // Load saved colors on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedPrimaryColor = localStorage.getItem('primaryColor');
+      const savedPrimaryDarkColor = localStorage.getItem('primaryDarkColor');
+      
+      if (savedPrimaryColor) {
+        applyColor(savedPrimaryColor);
+        // Update active color option
+        colorOptions.forEach(opt => {
+          if (opt.getAttribute('data-color') === savedPrimaryColor) {
+            opt.classList.add('active');
+          } else {
+            opt.classList.remove('active');
+          }
+        });
+      }
+    });
   </script>
+
 </body>
 </html>
