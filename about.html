@@ -4,315 +4,670 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - METROVILLE EDGES CO.LTD</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+    /* ===== RESET AND BASE STYLES ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f0f2f5;
-      color: #2d3748;
       line-height: 1.6;
-      font-size: 18px;
     }
 
+    /* ===== COLOR SYSTEM - CHANGE THESE 6 VARIABLES ===== */
+    :root {
+      /* BRAND COLORS - UPDATE THESE */
+      --brand-primary: #dc2626;        /* Red */
+      --brand-primary-light: #ef4444;  /* Light Red */
+      --brand-primary-dark: #b91c1c;   /* Dark Red */
+      --brand-secondary: #1e293b;      /* Dark Gray */
+      --brand-accent: #f59e0b;         /* Amber */
+      --brand-accent-light: #fbbf24;   /* Light Amber */
+
+      /* DERIVED COLORS - Auto-generated */
+      --header-bg: linear-gradient(135deg, var(--brand-primary-dark) 0%, var(--brand-primary) 100%);
+      --nav-bg: var(--brand-secondary);
+      --footer-bg: var(--brand-secondary);
+      --active-bg: var(--brand-primary);
+      --hover-color: var(--brand-accent-light);
+      
+      /* NEUTRAL COLORS */
+      --white: #ffffff;
+      --light: #f8fafc;
+      --text: #212529;
+      --text-light: #6c757d;
+      --border: #e9ecef;
+      
+      /* EFFECTS */
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    /* Apply background and text colors */
+    body {
+      background: var(--light);
+      color: var(--text);
+    }
+
+    /* ===== HEADER STYLES ===== */
     header {
-      background: linear-gradient(135deg,#004999,#0074cc);
-      color: white; padding: 2.5rem 1rem; text-align: center;
+      background: var(--header-bg);
+      color: var(--white);
+      padding: 1.5rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    nav {
-      background-color: #222; display: flex; flex-wrap: wrap;
-      justify-content: center; padding: 1rem 0;
-      position: sticky; top: 0; z-index: 1000;
-    }
-    nav a {
-      color: white; margin: 0 14px; text-decoration: none;
-      font-weight: 500; transition: color 0.3s ease;
-      font-size: 1.1rem;
-    }
-    nav a:hover, nav a.active { color: #00baff; }
-
-    .container {
-      width: 92%; max-width: 1200px;
-      margin: 50px auto;
-      padding: 0; /* Remove padding from container */
-      border-radius: 14px;
-      overflow: hidden; /* Ensures rounded corners on child sections */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
-    section { 
-      margin-bottom: 0; /* Remove margin between sections */
-      padding: 50px 40px; /* Add padding inside sections */
-      background-color: #fff; /* Default section background */
-    }
-    
-    /* Alternate section backgrounds */
-    section:nth-child(even) {
-      background-color: #f8fafc;
-    }
-    
-    .highlight-section {
-      background: linear-gradient(135deg, #f0f9ff, #e6f7ff) !important;
-    }
-
-    h2 { 
-      color: #003366; 
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
-    }
-    h3 { 
-      color: #003366; 
-      margin-top: 1.5rem; 
-      font-size: 1.5rem;
-      line-height: 1.4;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #2d3748;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      text-align: justify;
-      hyphens: auto;
-      word-wrap: break-word;
-    }
-
-    /* Alternating layout */
-    .flex-section {
-      display: grid; 
-      grid-template-columns: 1fr 1fr;
-      gap: 40px; 
+    .logo-section {
+      display: flex;
+      justify-content: center;
       align-items: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      margin-right: 1.25rem;
+      border-radius: 10px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 4px;
+    }
+
+    .logo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      text-align: left;
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .logo-text p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    header h1 {
+      position: relative;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    header p {
+      position: relative;
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+      opacity: 0.9;
+      color: var(--white);
+    }
+
+    /* ===== NAVIGATION STYLES ===== */
+    nav {
+      background: var(--nav-bg);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      border-bottom: 2px solid var(--brand-primary);
+    }
+
+    .nav-container {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
     }
-    .flex-section img {
-      width: 100%; 
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+
+    .nav-brand .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .nav-brand .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav-brand .logo span {
+      color: var(--brand-accent-light);
+      font-weight: 700;
+    }
+
+    .nav-brand .logo i {
+      font-size: 1.5rem;
+      color: var(--brand-accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a i {
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--hover-color);
+    }
+
+    .nav-links a.active {
+      background: var(--active-bg);
+      color: var(--white);
+    }
+
+    .nav-links a.active i {
+      color: var(--white);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      padding: 2rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    section:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .section-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-image {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light);
+      border: 1px solid var(--border);
+    }
+
+    .section-image img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .section-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--light);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .image-placeholder i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    h2 {
+      color: var(--text);
+      font-size: 1.7rem;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 0.75rem;
+      grid-column: 1 / -1;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 1px;
+    }
+
+    h3 {
+      color: var(--text);
+      margin: 1.25rem 0 0.75rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--text-light);
+    }
+
+    /* PARAGRAPHS */
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    p strong {
+      font-weight: 600;
+    }
+
+    .intro-paragraph {
+      font-size: 1.1rem;
+      background: var(--light);
+      padding: 1.25rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--text-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .featured-paragraph {
+      background: var(--light);
+      padding: 1.25rem 1.5rem;
+      border-radius: 6px;
+      margin: 1.25rem 0;
+      border: 1px solid var(--border);
     }
 
     blockquote {
-      font-style: italic; 
-      color: #4a5568;
-      margin: 25px 0; 
-      padding: 20px 25px;
-      border-left: 4px solid #ff6600;
-      font-size: 1.2rem;
-      background-color: rgba(255,255,255,0.7);
-      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-light);
+      margin: 1.25rem 0;
+      padding: 1.25rem;
+      border-left: 3px solid var(--text-light);
+      background: var(--light);
+      border-radius: 6px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      color: var(--text);
       line-height: 1.7;
     }
 
-    ul { 
-      padding-left: 20px; 
-      color: #4a5568;
-      line-height: 1.8; 
-      font-size: 1.1rem;
-    }
-    ul li { 
-      margin-bottom: 12px;
+    ul li {
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
       position: relative;
-      padding-left: 25px;
+      padding-left: 0.5rem;
     }
-    ul li:before {
+
+    ul li::before {
       content: "•";
-      color: #004999;
-      font-size: 1.5rem;
-      position: absolute;
-      left: 0;
-      top: -3px;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
     }
 
-    .highlight { 
-      background-color: #f0f9ff; 
-      padding: 40px; 
-      border-radius: 12px;
-      margin: 30px 0;
+    .highlight {
+      background: var(--light);
+      padding: 1.75rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
     }
 
-    /* Stats section */
-    .stats {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 25px; 
-      margin: 40px 0; 
-      text-align: center;
-    }
-    .stat-box {
-      background: #004999; 
-      color: white;
-      padding: 30px; 
-      border-radius: 14px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-      transition: transform 0.3s;
-    }
-    .stat-box:hover { transform: translateY(-6px); }
-    .stat-box h3 { font-size: 2.2rem; margin: 0; }
-    .stat-box p { 
-      margin: 0.5rem 0 0; 
-      font-size: 1.1rem;
+    .icon-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      grid-column: 1 / -1;
     }
 
-    /* Timeline - horizontal for desktop */
-    .timeline {
-      display: flex; 
-      justify-content: space-between;
-      gap: 30px; 
-      margin-top: 40px;
-      position: relative;
-    }
-    .timeline::before {
-      content: ""; 
-      position: absolute; 
-      top: 25px; 
-      left: 0; 
-      right: 0;
-      height: 4px; 
-      background: #004999;
-    }
-    .timeline-step {
-      flex: 1; 
-      text-align: center; 
-      position: relative;
-    }
-    .timeline-step h4 {
-      color: #004999; 
-      margin-bottom: 5px;
-      font-size: 1.3rem;
-    }
-    .timeline-step p {
-      font-size: 1.1rem;
-      padding: 0 15px;
-    }
-    .timeline-step::before {
-      content: "●"; 
-      color: #004999; 
-      font-size: 1.4rem;
-      position: absolute; 
-      top: 14px; 
-      left: 50%; 
-      transform: translateX(-50%);
-      background: #fff; 
-      border-radius: 50%;
+    .icon-header i {
+      font-size: 1.8rem;
+      color: var(--text);
     }
 
-    /* CTA */
-    .cta {
-      text-align: center; 
-      margin: 70px 0 30px;
-    }
-    .cta h2 {
-      font-size: 2.3rem;
-    }
-    .cta p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta a {
-      display: inline-block; 
-      background: #ff6600; 
-      color: white;
-      padding: 16px 32px; 
-      border-radius: 8px; 
-      text-decoration: none;
-      font-weight: 600; 
-      transition: all 0.3s;
-      font-size: 1.2rem;
-      margin-top: 20px;
-    }
-    .cta a:hover { 
-      background: #e65c00;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
+    /* ===== FOOTER STYLES ===== */
     footer {
-      background: #003366; 
-      color: #fff; 
-      text-align: center;
-      padding: 3rem 1rem; 
+      background: var(--footer-bg);
+      color: var(--white);
+      padding: 2.5rem 1rem 1.5rem;
+      margin-top: 3rem;
     }
-    footer p {
-      color: #fff;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
     }
-    footer a { 
-      color: #fff; 
+
+    .footer-section h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 35px;
+      height: 2px;
+      background: var(--brand-accent-light);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #cbd5e0;
       text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
-    footer a:hover { 
-      color: #00baff;
-      text-decoration: underline;
-    }
-    img.social-icon { 
-      vertical-align: middle; 
-      margin-right: 8px;
-      transition: transform 0.3s;
-    }
-    footer a:hover img.social-icon {
-      transform: scale(1.1);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
     }
 
-    /* Responsive */
+    .footer-links a:hover {
+      color: var(--hover-color);
+      padding-left: 5px;
+    }
+
+    .footer-links i {
+      margin-right: 0.75rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      background: var(--brand-primary-light);
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1024px) {
+      .nav-links a {
+        padding: 0.9rem 1rem;
+        font-size: 0.85rem;
+      }
+    }
+
     @media (max-width: 900px) {
-      .flex-section { 
+      .section-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 1.5rem;
       }
-      .timeline { 
-        flex-direction: column; 
-        gap: 40px;
-      }
-      .timeline::before { 
-        display: none; 
-      }
-      .timeline-step { 
-        text-align: left; 
-        padding-left: 30px;
-      }
-      .timeline-step::before { 
-        left: 0; 
-        transform: none; 
-        top: 0; 
-      }
-      body {
-        font-size: 16px;
-      }
-      section {
-        padding: 40px 25px;
-      }
-      .container {
-        width: 96%;
-      }
-      .highlight {
-        padding: 30px;
+      
+      .section-image {
+        height: 220px;
+        order: -1;
       }
     }
 
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 1.8rem;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--nav-bg);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-top: 3px solid var(--brand-primary);
       }
-      h3 {
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 0.25rem;
+        justify-content: flex-start;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      header {
+        padding: 1.25rem 1rem 1.75rem;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .logo-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .logo-text {
+        text-align: center;
+      }
+
+      .container {
+        padding: 2rem;
+        width: 95%;
+      }
+
+      section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      section {
+        padding: 1.25rem;
+      }
+
+      .highlight {
+        padding: 1.5rem;
+      }
+
+      h2 {
         font-size: 1.3rem;
       }
-      .cta h2 {
-        font-size: 2rem;
+
+      .icon-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
       }
-      section {
-        padding: 35px 20px;
+
+      .icon-header i {
+        font-size: 1.5rem;
+      }
+      
+      .section-image {
+        height: 180px;
       }
     }
   </style>
@@ -320,140 +675,245 @@
 <body>
 
   <header>
+    <div class="logo-section">
+      <div class="logo-container">
+        <div class="logo-img">
+          <img src="logo.jpg" alt="METROVILLE EDGES Logo">
+        </div>
+        <div class="logo-text">
+          <h1>METROVILLE EDGES</h1>
+          <p>CO.LTD | Monitoring & Evaluation Experts</p>
+        </div>
+      </div>
+    </div>
     <h1>About Us</h1>
+    <p>Learn more about our mission, values, and the team behind METROVILLE EDGES</p>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="corevalues.html">Core Values</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="Ourteam.html">Our Team</a>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <i class="fas fa-chart-line"></i>
+          METROVILLE <span>EDGES</span>
+        </a>
+      </div>
+      
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-links">
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          Home
+        </a>
+        <a href="about.html" class="active">
+          <i class="fas fa-info-circle"></i>
+          About
+        </a>
+        <a href="vision.html">
+          <i class="fas fa-eye"></i>
+          Vision
+        </a>
+        <a href="mission.html">
+          <i class="fas fa-bullseye"></i>
+          Mission
+        </a>
+        <a href="corevalues.html">
+          <i class="fas fa-heart"></i>
+          Core Values
+        </a>
+        <a href="Ourteam.html">
+          <i class="fas fa-users"></i>
+          Our Team
+        </a>
+        <a href="contact.html">
+          <i class="fas fa-envelope"></i>
+          Contact
+        </a>
+        <a href="feedback.html">
+          <i class="fas fa-comment-dots"></i>
+          Feedback
+        </a>
+      </div>
+    </div>
   </nav>
 
   <div class="container">
-    <!-- Who We Are -->
-    <section id="who-we-are" data-aos="fade-up" class="flex-section">
-      <div>
+    <section id="who-we-are">
+      <div class="icon-header">
+        <i class="fas fa-building"></i>
         <h2>Who We Are</h2>
-        <p><strong>METROVILLE EDGES CO.LTD</strong> is a dynamic limited liability company supporting both profit and nonprofit organizations in delivering high-impact Results-Based Monitoring & Evaluation (RBM&E). Since our founding in 2023 by six development-focused shareholders, we've been committed to enhancing Uganda's development landscape — building on the strong legacy of JPS Consulting Africa, active since 2014.</p>
-        <p>Our team combines decades of experience in international development with cutting-edge technical expertise. We bridge the gap between traditional M&E approaches and innovative digital solutions, helping organizations measure what matters most and use data to drive meaningful change.</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1581092916357-9a479fdfeab0?w=800" alt="Team collaboration">
-    </section>
-
-    <!-- At a Glance -->
-    <section id="glance" data-aos="zoom-in" class="highlight-section">
-      <h2>📊 At a Glance</h2>
-      <div class="stats">
-        <div class="stat-box"><h3>10+</h3><p>Years Experience</p></div>
-        <div class="stat-box"><h3>50+</h3><p>Projects Completed</p></div>
-        <div class="stat-box"><h3>30+</h3><p>Partners Served</p></div>
-        <div class="stat-box"><h3>100K+</h3><p>Lives Reached</p></div>
-      </div>
-    </section>
-
-    <!-- Innovation -->
-    <section id="innovation" class="flex-section" data-aos="fade-right">
-      <div>
-        <h2>🌟 Innovation</h2>
-        <p>Innovation fuels our commitment to smarter, scalable M&E. Through creative thinking and adaptive tools, we help organizations not just track progress, but drive it. Our approach combines technical rigor with practical solutions tailored to each client's unique context and challenges.</p>
-        <blockquote>"Innovation means doing better — not just differently. At METROVILLE EDGES, we're constantly evolving our methods to deliver more insightful, actionable results for our partners."</blockquote>
-        <h3>✨ Key Innovation Strategies:</h3>
-        <ul>
-          <li>📱 Mobile & GPS-enabled digital data collection that works offline in remote areas</li>
-          <li>📊 Real-time, interactive dashboards customized for different stakeholder needs</li>
-          <li>⚙️ Custom M&E tools and frameworks aligned with your theory of change</li>
-          <li>🔄 Agile learning systems that help programs adapt quickly to changing contexts</li>
-          <li>📈 Predictive analytics and scenario planning to anticipate future outcomes</li>
-        </ul>
-      </div>
-      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800" alt="Innovation tools">
-    </section>
-
-    <!-- Evaluation -->
-    <section id="evaluate" class="flex-section" data-aos="fade-left">
-      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800" alt="Evaluation process">
-      <div>
-        <h2>📊 Evaluation</h2>
-        <p>We turn data into insight. Our evaluations go deep — combining qualitative and quantitative methods to guide smarter decision-making and amplify effectiveness. Whether you need to demonstrate impact to donors, improve program delivery, or refine your strategy, our evaluations provide the evidence-based answers you need.</p>
-        <blockquote>"Informed decisions start with informed evaluations. Our team specializes in asking the right questions and designing methodologies that yield meaningful, actionable answers."</blockquote>
-        <h3>✅ Services Offered:</h3>
-        <ul>
-          <li>📝 Baseline, midterm & endline evaluations with rigorous sampling methodologies</li>
-          <li>📑 Formative, summative, and developmental assessments tailored to program stage</li>
-          <li>🤝 Mixed-methods and participatory evaluations that capture diverse perspectives</li>
-          <li>📌 Logic models, KPIs, and tailored frameworks aligned with your goals</li>
-          <li>🔍 Specialized evaluations including gender analyses, cost-benefit studies, and more</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Impact -->
-    <section id="impact" class="flex-section highlight-section" data-aos="fade-up">
-      <div>
-        <h2>🌍 Impact</h2>
-        <p>Impact is our north star. We support organizations in capturing, communicating, and growing their impact — from grassroots to global scale. Our approach goes beyond counting outputs to understanding how your work transforms lives and systems over time.</p>
-        <blockquote>"When innovation and evaluation work together, impact becomes inevitable. We help you move from 'what worked' to 'how it worked' to 'how we can do even better.'"</blockquote>
-        <h3>🔍 How We Support Impact:</h3>
-        <ul>
-          <li>🗺️ Mapping impact pathways that connect activities to outcomes to long-term change</li>
-          <li>🎯 Outcome and impact-level evaluation using counterfactual methods where appropriate</li>
-          <li>📖 Data storytelling that makes your impact compelling to diverse audiences</li>
-          <li>📚 Strengthening your team's capacity to track and learn from impact data</li>
-          <li>🔄 Feedback loops that connect impact findings directly to program improvement</li>
-        </ul>
-      </div>
-      <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?w=800" alt="Global impact">
-    </section>
-
-    <!-- Timeline -->
-    <section id="timeline" data-aos="fade-up">
-      <h2>📌 Our Journey</h2>
-      <div class="timeline">
-        <div class="timeline-step">
-          <h4>2023</h4>
-          <p>Founded by six development-focused shareholders with a shared vision for transformative M&E. Built on the legacy of JPS Consulting Africa's decade of experience.</p>
+      <div class="section-content">
+        <div class="section-text">
+          <p class="intro-paragraph"><strong>METROVILLE EDGES CO.LTD</strong> is a dynamic limited liability company supporting both profit and nonprofit organizations in delivering high-impact Results-Based Monitoring & Evaluation (RBM&E). Since our founding in 2023 by six development-focused shareholders, we've been committed to enhancing Uganda's development landscape.</p>
+          
+          <p class="featured-paragraph">Our approach combines cutting-edge technology with deep sector expertise to deliver monitoring and evaluation solutions that drive meaningful change and sustainable development outcomes.</p>
         </div>
-        <div class="timeline-step">
-          <h4>2024</h4>
-          <p>Expansion into advanced digital M&E solutions with predictive analytics capabilities. Partnered with leading tech providers to enhance data collection and visualization.</p>
-        </div>
-        <div class="timeline-step">
-          <h4>2025</h4>
-          <p>Strengthening partnerships across East Africa and scaling impact nationwide. Recognized as a leader in innovative, utilization-focused evaluation approaches.</p>
+        <div class="section-image">
+          <div class="image-placeholder">
+            <i class="fas fa-users"></i>
+            <p>Our dedicated team working on development projects</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta" data-aos="zoom-in">
-      <h2>Ready to Amplify Your Impact?</h2>
-      <p>Let's work together to transform your organization's monitoring & evaluation systems. Whether you need a one-time evaluation or ongoing M&E support, we'll tailor our approach to your unique needs and goals.</p>
-      <a href="contact.html">📩 Contact Us Today</a>
+    <section id="innovation" class="highlight">
+      <div class="icon-header">
+        <i class="fas fa-lightbulb"></i>
+        <h2>Innovation</h2>
+      </div>
+      <div class="section-content">
+        <div class="section-text">
+          <p>Innovation fuels our commitment to smarter, scalable M&E. Through creative thinking and adaptive tools, we help organizations not just track progress, but drive it forward with data-driven insights.</p>
+          
+          <blockquote>"Innovation means doing better — not just differently. It's about creating solutions that transform how development impact is measured and achieved."</blockquote>
+          
+          <h3>Key Innovation Strategies</h3>
+          <ul>
+            <li>Mobile & GPS-enabled digital data collection systems</li>
+            <li>Real-time, interactive dashboards with customizable visualization</li>
+            <li>Custom M&E tools and frameworks for your organizational context</li>
+            <li>Agile learning systems for rapid adaptation</li>
+            <li>Predictive analytics and scenario planning</li>
+          </ul>
+        </div>
+        <div class="section-image">
+          <div class="image-placeholder">
+            <i class="fas fa-laptop-code"></i>
+            <p>Innovative data visualization and analysis tools</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluate" class="highlight">
+      <div class="icon-header">
+        <i class="fas fa-chart-bar"></i>
+        <h2>Evaluation</h2>
+      </div>
+      <div class="section-content">
+        <div class="section-text">
+          <p>We transform complex data into actionable insights that drive strategic decision-making. Our comprehensive evaluation approaches combine rigorous quantitative methods with rich qualitative understanding.</p>
+          
+          <blockquote>"Informed decisions start with informed evaluations. We don't just collect data—we create understanding that empowers organizations to maximize their impact."</blockquote>
+          
+          <h3>Comprehensive Evaluation Services</h3>
+          <ul>
+            <li>Baseline, midterm & endline evaluations</li>
+            <li>Formative, summative, and developmental assessments</li>
+            <li>Mixed-methods and participatory evaluations</li>
+            <li>Logic models, KPIs, and tailored frameworks</li>
+            <li>Impact evaluations using experimental designs</li>
+          </ul>
+        </div>
+        <div class="section-image">
+          <div class="image-placeholder">
+            <i class="fas fa-chart-line"></i>
+            <p>Comprehensive data analysis and reporting</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="highlight">
+      <div class="icon-header">
+        <i class="fas fa-globe-africa"></i>
+        <h2>Impact</h2>
+      </div>
+      <div class="section-content">
+        <div class="section-text">
+          <p>Impact measurement is at the heart of everything we do. We partner with organizations to not only capture and communicate their impact but to continuously enhance it through evidence-based learning.</p>
+          
+          <blockquote>"When innovation and evaluation work together, impact becomes inevitable. We help organizations move from counting outputs to creating outcomes that transform communities."</blockquote>
+          
+          <h3>Strategic Impact Support</h3>
+          <ul>
+            <li>Mapping comprehensive impact pathways</li>
+            <li>Outcome and impact-level evaluation</li>
+            <li>Data storytelling that inspires stakeholders</li>
+            <li>Strengthening team capacity through training</li>
+            <li>Social return on investment (SROI) analysis</li>
+          </ul>
+        </div>
+        <div class="section-image">
+          <div class="image-placeholder">
+            <i class="fas fa-hand-holding-heart"></i>
+            <p>Measuring real-world impact in communities</p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 
   <footer>
-    <p>
-      <a href="https://www.linkedin.com/company/metroville-edge" target="_blank">
-        <img class="social-icon" src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn">
-        Connect with us on LinkedIn
-      </a>
-    </p>
-    <p>
-      📞 <a href="tel:+256768145046">+256 768 145 046</a><br>
-      📧 <a href="mailto:infometrovilleedges@gmail.com">infometrovilleedges@gmail.com</a><br>
-      💬 <a href="https://wa.me/256772487189" target="_blank">Chat with us on WhatsApp</a>
-    </p>
-    <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:+256768145046">
+              <i class="fas fa-phone"></i> +256 768 145 046
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infometrovilleedges@gmail.com">
+              <i class="fas fa-envelope"></i> infometrovilleedges@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/256772487189" target="_blank">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="Ourteam.html"><i class="fas fa-chevron-right"></i> Team</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <p>Follow us for latest insights and developments in monitoring and evaluation.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/metroville-edge" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
