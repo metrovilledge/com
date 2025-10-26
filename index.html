@@ -611,18 +611,6 @@
       background-color: #1abc9c;
     }
 
-    /* Scroll Reveal Animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -764,7 +752,7 @@
     </div>
   </nav>
 
-  <section class="hero reveal">
+  <section class="hero">
     <img src="hero.jpg" alt="Team working together in collaboration" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
     <div class="overlay-text">
       <h2>Innovate. Evaluate. Impact.</h2>
@@ -772,7 +760,7 @@
     </div>
   </section>
 
-  <section class="services reveal">
+  <section class="services">
     <h2>What We Do</h2>
     <div class="service-boxes">
       <div class="service">
@@ -820,13 +808,13 @@
     </div>
   </section>
 
-  <section class="cta reveal">
+  <section class="cta">
     <h2>Let's Build Smarter Solutions Together</h2>
     <button class="cta-button" onclick="location.href='contact.html'">Contact Us</button>
   </section>
 
   <!-- Newsletter Section -->
-  <section class="newsletter reveal">
+  <section class="newsletter">
     <h2>Stay Updated</h2>
     <p>Subscribe to our newsletter for insights, updates, and opportunities from METROVILLE EDGES CO.LTD.</p>
 
@@ -918,18 +906,6 @@
       });
     });
 
-    // Scroll Reveal Animation
-    const reveals = document.querySelectorAll('.reveal');
-    window.addEventListener('scroll', () => {
-      reveals.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (top < windowHeight - 100) {
-          section.classList.add('active');
-        }
-      });
-    });
-
     // Newsletter Thank You Message
     function showThankYou() {
       const message = document.getElementById('newsletterMessage');
@@ -1010,4 +986,3 @@
   </script>
 </body>
 </html>
-
