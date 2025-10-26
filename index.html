@@ -3,41 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="google-site-verification" content="zOkRBKUMsuU4GXm9QPuFQUSjh8AJwSY9deebpvtIAMw" />
+  <meta name="google-site-verification" content="zOkRBKUMsuU4Gm9QPuFQUSjh8AJwSY9deebpvtIAMw" />
   <title>Home - METROVILLE EDGES CO.LTD</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    .newsletter {
-      background-color: #f4f4f4;
-      padding: 2rem;
+    :root {
+      --primary: #e74c3c;
+      --primary-dark: #c0392b;
+      --secondary: #222;
+      --light: #f9f9f9;
+      --white: #ffffff;
+      --text: #333;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 2rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .newsletter h2 {
-      font-size: 1.8rem;
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .logo-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2.5rem;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-img {
+      width: 100px;
+      height: 100px;
+      margin-right: 1.5rem;
+      border-radius: 12px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 5px;
+    }
+
+    .logo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      text-align: left;
+    }
+
+    .logo-text h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .logo-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    header h1 {
+      position: relative;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    .newsletter-form {
-      margin-top: 1rem;
+
+    header p {
+      position: relative;
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .newsletter-form input[type="email"] {
-      padding: 0.5rem;
-      width: 250px;
-      max-width: 80%;
-      margin-right: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+
+    nav {
+      background-color: var(--secondary);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .newsletter-form button {
-      padding: 0.5rem 1rem;
-      background-color: #0077b6;
-      color: white;
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
       border: none;
-      border-radius: 4px;
+      color: var(--white);
+      font-size: 1.5rem;
       cursor: pointer;
     }
-    .newsletter-form button:hover {
-      background-color: #023e8a;
+
+    .hero {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--white);
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .overlay-text h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .hero-button {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .hero-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .services {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .services h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    .service-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .service img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+
+    .service h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .service p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      padding: 4rem 1rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      background-color: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--white);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      background-color: transparent;
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .newsletter {
+      background-color: var(--white);
+      padding: 4rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .newsletter h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      flex-grow: 1;
+      min-width: 250px;
+    }
+
+    .newsletter-form button {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-form button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    #newsletterMessage {
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
     .visually-hidden {
       position: absolute;
       left: -10000px;
@@ -46,33 +412,364 @@
       height: 1px;
       overflow: hidden;
     }
+
+    footer {
+      background: linear-gradient(135deg, var(--secondary) 0%, #444 100%);
+      color: var(--white);
+      padding: 3rem 1rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-links i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Color Customization Panel */
+    .color-customizer {
+      position: fixed;
+      top: 50%;
+      right: -300px;
+      transform: translateY(-50%);
+      background: var(--white);
+      border-radius: 8px 0 0 8px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      width: 300px;
+      transition: right 0.4s ease;
+      z-index: 1001;
+      border: 1px solid #eaeaea;
+    }
+
+    .color-customizer.active {
+      right: 0;
+    }
+
+    .color-toggle {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px 0 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .color-toggle:hover {
+      background: var(--primary-dark);
+    }
+
+    .color-toggle i {
+      font-size: 1.2rem;
+    }
+
+    .color-customizer h3 {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .color-customizer h3 i {
+      color: var(--primary);
+    }
+
+    .color-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+
+    .color-option.active {
+      border-color: var(--secondary);
+      transform: scale(1.1);
+    }
+
+    .color-option.red {
+      background-color: #e74c3c;
+    }
+
+    .color-option.blue {
+      background-color: #3498db;
+    }
+
+    .color-option.green {
+      background-color: #2ecc71;
+    }
+
+    .color-option.purple {
+      background-color: #9b59b6;
+    }
+
+    .color-option.orange {
+      background-color: #e67e22;
+    }
+
+    .color-option.teal {
+      background-color: #1abc9c;
+    }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .logo-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .logo-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .logo-text {
+        text-align: center;
+      }
+
+      .overlay-text h2 {
+        font-size: 2.2rem;
+      }
+
+      .service-boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .newsletter-form input[type="email"] {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .color-customizer {
+        width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .logo-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .overlay-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .services h2, .cta h2, .newsletter h2 {
+        font-size: 1.8rem;
+      }
+
+      .color-customizer {
+        width: 220px;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <h1>METROVILLE EDGES CO.LTD</h1>
-      <p>Your Partner in Results-Based Monitoring & Evaluation</p>
-      <button id="themeToggle" aria-label="Toggle Theme">Toggle Theme</button>
+
+  <!-- Color Customization Panel -->
+  <div class="color-customizer">
+    <div class="color-toggle">
+      <i class="fas fa-palette"></i>
     </div>
+    <h3><i class="fas fa-paint-brush"></i> Color Theme</h3>
+    
+    <div class="color-options">
+      <div class="color-option red active" data-color="#e74c3c"></div>
+      <div class="color-option blue" data-color="#3498db"></div>
+      <div class="color-option green" data-color="#2ecc71"></div>
+      <div class="color-option purple" data-color="#9b59b6"></div>
+      <div class="color-option orange" data-color="#e67e22"></div>
+      <div class="color-option teal" data-color="#1abc9c"></div>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Select a color to change the website theme</p>
+  </div>
+
+  <header>
+    <div class="logo-section">
+      <div class="logo-container">
+        <div class="logo-img">
+          <img src="logo.jpg" alt="METROVILLE EDGES CO.LTD Logo" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="logo-text">
+          <h1>METROVILLE EDGES</h1>
+          <p>CO.LTD | Monitoring & Evaluation Experts</p>
+        </div>
+      </div>
+    </div>
+    <h1>Your Partner in Results-Based Monitoring & Evaluation</h1>
+    <p>Driving innovation and excellence in every solution we deliver</p>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="corevalues.html">Core Values</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="Ourteam.html">Our Team</a>
+    <div class="nav-container">
+      <a href="index.html" class="logo">METROVILLE <span>EDGES</span></a>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="vision.html">Mission & Vision</a>
+        <a href="Ourteam.html">Our Team</a>
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+    </div>
   </nav>
 
   <section class="hero reveal">
-    <img src="hero.jpg" alt="Team working together in collaboration" />
+    <img src="hero.jpg" alt="Team working together in collaboration" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
     <div class="overlay-text">
       <h2>Innovate. Evaluate. Impact.</h2>
-      <button onclick="location.href='about.html'" aria-label="Learn more about us">Learn More</button>
+      <button class="hero-button" onclick="location.href='about.html'">Learn More</button>
     </div>
   </section>
 
@@ -80,41 +777,53 @@
     <h2>What We Do</h2>
     <div class="service-boxes">
       <div class="service">
-        <img src="service1.jpg" alt="Monitoring tools" />
-        <h3>Monitoring</h3>
-        <p>Tools to track project performance effectively and transparently.</p>
+        <img src="service1.jpg" alt="Monitoring tools" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+        <div class="service-content">
+          <h3>Monitoring</h3>
+          <p>Tools to track project performance effectively and transparently.</p>
+        </div>
       </div>
       <div class="service">
-        <img src="service2.jpg" alt="Survey collection" />
-        <h3>Baseline, Midline, and Endline Surveys</h3>
-        <p>Conducting high-quality evaluations to assess impact and inform decision-making.</p>
+        <img src="service2.jpg" alt="Survey collection" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80'">
+        <div class="service-content">
+          <h3>Baseline, Midline, and Endline Surveys</h3>
+          <p>Conducting high-quality evaluations to assess impact and inform decision-making.</p>
+        </div>
       </div>
       <div class="service">
-        <img src="service3.jpg" alt="M&E training session" />
-        <h3>Capacity Building and Training</h3>
-        <p>Offering practical training and mentorship to strengthen institutional M&E capacity.</p>
+        <img src="service3.jpg" alt="M&E training session" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+        <div class="service-content">
+          <h3>Capacity Building and Training</h3>
+          <p>Offering practical training and mentorship to strengthen institutional M&E capacity.</p>
+        </div>
       </div>
       <div class="service">
-        <img src="service-data.jpg" alt="Data visualization dashboard" />
-        <h3>Data Management and Analysis</h3>
-        <p>Providing data collection, analysis, visualization, and reporting services using modern tools and technologies.</p>
+        <img src="service-data.jpg" alt="Data visualization dashboard" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+        <div class="service-content">
+          <h3>Data Management and Analysis</h3>
+          <p>Providing data collection, analysis, visualization, and reporting services using modern tools and technologies.</p>
+        </div>
       </div>
       <div class="service">
-        <img src="service-planning.jpg" alt="Planning and design documents" />
-        <h3>Project Planning and Design</h3>
-        <p>Assisting organizations in developing robust, evidence-informed project frameworks and proposals.</p>
+        <img src="service-planning.jpg" alt="Planning and design documents" onerror="this.src='https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+        <div class="service-content">
+          <h3>Project Planning and Design</h3>
+          <p>Assisting organizations in developing robust, evidence-informed project frameworks and proposals.</p>
+        </div>
       </div>
       <div class="service">
-        <img src="service-strategy.jpg" alt="Strategic planning session" />
-        <h3>Strategic Planning and Organizational Development</h3>
-        <p>Supporting institutions in aligning their vision, strategies, and operations for greater impact.</p>
+        <img src="service-strategy.jpg" alt="Strategic planning session" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'">
+        <div class="service-content">
+          <h3>Strategic Planning and Organizational Development</h3>
+          <p>Supporting institutions in aligning their vision, strategies, and operations for greater impact.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="cta reveal">
     <h2>Let's Build Smarter Solutions Together</h2>
-    <button onclick="location.href='contact.html'" aria-label="Go to contact page">Contact Us</button>
+    <button class="cta-button" onclick="location.href='contact.html'">Contact Us</button>
   </section>
 
   <!-- Newsletter Section -->
@@ -137,33 +846,77 @@
       <button type="submit">Subscribe</button>
     </form>
 
-    <p id="newsletterMessage" aria-live="polite" style="margin-top: 10px;"></p>
+    <p id="newsletterMessage" aria-live="polite"></p>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
   </section>
 
   <footer>
-    <p>
-      <a href="https://www.linkedin.com/company/metroville-edge" target="_blank" rel="noopener" style="color: #fff; text-decoration: none;">
-        <img src="https://cdn-icons-png.flaticon.com/24/174/174857.png" alt="LinkedIn icon" style="vertical-align: middle; margin-right: 8px;">
-        Connect with us on LinkedIn
-      </a>
-    </p>
-    <p>
-      📞 <a href="tel:+256768145046" style="color: #fff; text-decoration: none;">+256 768 145 046</a><br>
-      📧 <a href="mailto:infometrovilleedges@gmail.com" style="color: #fff; text-decoration: none;">infometrovilleedges@gmail.com</a><br>
-      💬 <a href="https://wa.me/256772487189" target="_blank" rel="noopener" style="color: #fff; text-decoration: none;">Chat with us on WhatsApp</a>
-    </p>
-    <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:+256768145046">
+              <i class="fas fa-phone"></i> +256 768 145 046
+            </a>
+          </li>
+          <li>
+            <a href="mailto:infometrovilleedges@gmail.com">
+              <i class="fas fa-envelope"></i> infometrovilleedges@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/256772487189" target="_blank">
+              <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="Ourteam.html"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+          <li><a href="vision.html"><i class="fas fa-chevron-right"></i> Mission & Vision</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <p>Follow us on social media to stay updated with our latest news and insights.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/metroville-edge" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 METROVILLE EDGES CO.LTD. All Rights Reserved.</p>
+    </div>
   </footer>
 
   <script>
-    // Theme Toggle
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      document.querySelector('header').classList.toggle('dark-mode');
-      document.querySelector('nav').classList.toggle('dark-mode');
-      document.querySelector('footer').classList.toggle('dark-mode');
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+      });
     });
 
     // Scroll Reveal Animation
@@ -185,6 +938,76 @@
       message.style.color = "green";
       return true;
     }
+
+    // Color Customization Functionality
+    const colorCustomizer = document.querySelector('.color-customizer');
+    const colorToggle = document.querySelector('.color-toggle');
+    const colorOptions = document.querySelectorAll('.color-option');
+
+    // Toggle color customizer panel
+    colorToggle.addEventListener('click', () => {
+      colorCustomizer.classList.toggle('active');
+    });
+
+    // Apply predefined color options
+    colorOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        // Remove active class from all options
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        // Add active class to clicked option
+        option.classList.add('active');
+        // Apply the color
+        applyColor(option.getAttribute('data-color'));
+      });
+    });
+
+    // Function to apply color changes
+    function applyColor(color) {
+      // Calculate a darker version for primary-dark
+      const primaryDark = darkenColor(color, 20);
+      
+      // Update CSS variables
+      document.documentElement.style.setProperty('--primary', color);
+      document.documentElement.style.setProperty('--primary-dark', primaryDark);
+      
+      // Save to localStorage for persistence
+      localStorage.setItem('primaryColor', color);
+      localStorage.setItem('primaryDarkColor', primaryDark);
+    }
+
+    // Function to darken a color
+    function darkenColor(color, percent) {
+      const num = parseInt(color.replace("#", ""), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) - amt;
+      const G = (num >> 8 & 0x00FF) - amt;
+      const B = (num & 0x0000FF) - amt;
+      
+      return "#" + (
+        0x1000000 +
+        (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+        (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+        (B < 255 ? (B < 1 ? 0 : B) : 255)
+      ).toString(16).slice(1);
+    }
+
+    // Load saved colors on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedPrimaryColor = localStorage.getItem('primaryColor');
+      const savedPrimaryDarkColor = localStorage.getItem('primaryDarkColor');
+      
+      if (savedPrimaryColor) {
+        applyColor(savedPrimaryColor);
+        // Update active color option
+        colorOptions.forEach(opt => {
+          if (opt.getAttribute('data-color') === savedPrimaryColor) {
+            opt.classList.add('active');
+          } else {
+            opt.classList.remove('active');
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
