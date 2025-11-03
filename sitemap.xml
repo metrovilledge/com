@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://metrovilleedge.com/</loc></url>
-  <url><loc>https://metrovilleedge.com/about.html</loc></url>
-  <url><loc>https://metrovilleedge.com/vision.html</loc></url>
-  <url><loc>https://metrovilleedge.com/mission.html</loc></url>
-  <url><loc>https://metrovilleedge.com/corevalues.html</loc></url>
-  <url><loc>https://metrovilleedge.com/contact.html</loc></url>
-  <url><loc>https://metrovilleedge.com/feedback.html</loc></url>
-  <url><loc>https://metrovilleedge.com/Ourteam.html</loc></url>
+  <url><loc>https://metrovilleedge.com/about</loc></url>
+  <url><loc>https://metrovilleedge.com/vision</loc></url>
+  <url><loc>https://metrovilleedge.com/mission</loc></url>
+  <url><loc>https://metrovilleedge.com/corevalues</loc></url>
+  <url><loc>https://metrovilleedge.com/contact</loc></url>
+  <url><loc>https://metrovilleedge.com/feedback</loc></url>
+  <url><loc>https://metrovilleedge.com/Ourteam</loc></url>
 </urlset>
+
